@@ -1,0 +1,191 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://MainMenuButton.gd" type="Script" id=1]
+[ext_resource path="res://Images/Background.png" type="Texture" id=2]
+[ext_resource path="res://Lose.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/CarterOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Images/Enemy2.png" type="Texture" id=5]
+[ext_resource path="res://Images/Enemy1.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Score.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 648.369, 10 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 4
+font_data = ExtResource( 4 )
+
+[node name="Lose" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.43201
+margin_top = -1.43198
+margin_right = 1.43201
+margin_bottom = -1.43201
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="VBoxContainer" parent="."]
+margin_left = 507.0
+margin_top = 279.0
+margin_right = 773.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return To Main Menu" type="Button" parent="Button"]
+margin_right = 266.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Main Menu"
+flat = true
+script = ExtResource( 1 )
+scene_to_load = "res://Title Scene.tscn"
+
+[node name="Button2" type="VBoxContainer" parent="."]
+margin_left = 502.0
+margin_top = 400.0
+margin_right = 779.0
+margin_bottom = 481.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level Select" type="Button" parent="Button2"]
+margin_right = 277.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Level select"
+flat = true
+script = ExtResource( 1 )
+scene_to_load = "res://Level Selection.tscn"
+
+[node name="Game Over" type="VBoxContainer" parent="."]
+margin_left = 358.5
+margin_right = 923.5
+margin_bottom = 155.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Over" type="Label" parent="Game Over"]
+margin_right = 565.0
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.282353, 0, 1 )
+text = "Game Over!"
+
+[node name="Left Image" type="VBoxContainer" parent="."]
+margin_left = 60.0
+margin_top = 210.0
+margin_right = 360.0
+margin_bottom = 510.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Left Image"]
+margin_right = 300.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="Right Image" type="VBoxContainer" parent="."]
+margin_left = 920.0
+margin_top = 210.0
+margin_right = 1220.0
+margin_bottom = 510.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Right Image"]
+margin_right = 300.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 1
+flip_h = true
+
+[node name="Message" type="VBoxContainer" parent="."]
+margin_left = 390.0
+margin_top = 140.0
+margin_right = 899.0
+margin_bottom = 215.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="Message"]
+margin_right = 509.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.470588, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Better luck next time!"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+self_modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=[
+"top",
+]]
+position = Vector2( 640, -25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.527
+margin_left = 600.0
+margin_top = 550.0
+margin_right = 11.44
+margin_bottom = 600.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Score"
+align = 1
+script = ExtResource( 7 )

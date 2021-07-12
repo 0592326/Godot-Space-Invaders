@@ -1,0 +1,267 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Title Scene.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/CarterOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Images/Background.png" type="Texture" id=3]
+[ext_resource path="res://MainMenuButton.gd" type="Script" id=4]
+[ext_resource path="res://Images/Player1.png" type="Texture" id=5]
+[ext_resource path="res://Images/Water.png" type="Texture" id=6]
+[ext_resource path="res://Quit.gd" type="Script" id=7]
+[ext_resource path="res://Levels/Score.gd" type="Script" id=8]
+[ext_resource path="res://Audio/Button.wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 2
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 2
+font_data = ExtResource( 2 )
+
+[node name="Title Scene" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="VBoxContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 124.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title"]
+margin_right = 1280.0
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.486275, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Water Fight"
+align = 1
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 497.0
+margin_top = 200.0
+margin_right = 784.0
+margin_bottom = 523.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main Buttons" type="HBoxContainer" parent="Menu"]
+margin_right = 287.0
+margin_bottom = 323.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/Main Buttons"]
+margin_right = 287.0
+margin_bottom = 323.0
+custom_constants/separation = 40
+
+[node name="Level select" type="VBoxContainer" parent="Menu/Main Buttons/Buttons"]
+margin_right = 287.0
+margin_bottom = 81.0
+
+[node name="Level select" type="Button" parent="Menu/Main Buttons/Buttons/Level select"]
+margin_right = 287.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Level  select"
+flat = true
+script = ExtResource( 4 )
+scene_to_load = "res://Level Selection.tscn"
+
+[node name="Options" type="VBoxContainer" parent="Menu/Main Buttons/Buttons"]
+margin_top = 121.0
+margin_right = 287.0
+margin_bottom = 202.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="Menu/Main Buttons/Buttons/Options"]
+margin_right = 287.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Options"
+flat = true
+script = ExtResource( 4 )
+
+[node name="Quit" type="VBoxContainer" parent="."]
+margin_left = 545.0
+margin_top = 450.0
+margin_right = 723.0
+margin_bottom = 531.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Quit"]
+margin_right = 178.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.470588, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Quit"
+flat = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Info" type="HBoxContainer" parent="."]
+margin_top = 695.0
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version number" type="Label" parent="Game Info"]
+margin_right = 638.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Version  0.2"
+
+[node name="Developer" type="Label" parent="Game Info"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Alex Dalwood"
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Background Image" type="TextureRect" parent="Background"]
+modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+self_modulate = Color( 0.792157, 0.792157, 0.792157, 1 )
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player Image 1" type="HBoxContainer" parent="."]
+margin_left = 50.0
+margin_top = 150.0
+margin_right = 350.0
+margin_bottom = 450.0
+rect_rotation = 150.0
+rect_pivot_offset = Vector2( 150, 150 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player image" type="TextureRect" parent="Player Image 1"]
+margin_right = 300.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="Player Image 2" type="HBoxContainer" parent="."]
+margin_left = 930.0
+margin_top = 150.0
+margin_right = 1230.0
+margin_bottom = 450.0
+rect_rotation = -150.0
+rect_pivot_offset = Vector2( 150, 150 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player image" type="TextureRect" parent="Player Image 2"]
+margin_right = 300.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="Ammo Image 1" type="HBoxContainer" parent="."]
+margin_left = 455.044
+margin_top = 549.974
+margin_right = 524.044
+margin_bottom = 614.974
+rect_rotation = 150.0
+rect_scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ammo image" type="TextureRect" parent="Ammo Image 1"]
+margin_right = 65.0
+margin_bottom = 65.0
+texture = ExtResource( 6 )
+
+[node name="Ammo Image 2" type="HBoxContainer" parent="."]
+margin_left = 992.413
+margin_top = 646.426
+margin_right = 1061.41
+margin_bottom = 711.426
+rect_rotation = -150.0
+rect_scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ammo image" type="TextureRect" parent="Ammo Image 2"]
+margin_right = 65.0
+margin_bottom = 65.0
+texture = ExtResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="Score" type="Label" parent="."]
+margin_left = 1220.0
+margin_top = 690.0
+margin_right = 1263.0
+margin_bottom = 715.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Score"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Quit/Quit" to="Quit/Quit" method="_on_Quit_button_up"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.4601, 30.8075 )
+
+[node name="Enemy" type="KinematicBody2D" groups=[
+"enemy",
+]]
+position = Vector2( 217.645, 74.6673 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
